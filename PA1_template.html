@@ -77,267 +77,12 @@ knitr::opts_chunk$set(echo=TRUE,message=FALSE,warning=FALSE,dev=&quot;png&quot;)
 <pre class="r"><code>library(dplyr)  # to manipulate data frames
 library(pander) # nice printing in markdown
 library(knitr)  # for markdown
+panderOptions('table.style', 'rmarkdown') # so that the md file looks okay.
 # group the data by date,  then compute the total steps for each date.
 sm &lt;- group_by(df,date) %&gt;% summarise(TotalSteps = sum(steps,na.rm=TRUE))
 pander(as.data.frame(sm),big.mark=&quot;,&quot;) # print out the total steps.</code></pre>
-<table>
-<colgroup>
-<col width="15%"></col>
-<col width="16%"></col>
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">date</th>
-<th align="center">TotalSteps</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">2012-10-01</td>
-<td align="center">0</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-02</td>
-<td align="center">126</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-03</td>
-<td align="center">11,352</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-04</td>
-<td align="center">12,116</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-05</td>
-<td align="center">13,294</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-06</td>
-<td align="center">15,420</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-07</td>
-<td align="center">11,015</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-08</td>
-<td align="center">0</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-09</td>
-<td align="center">12,811</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-10</td>
-<td align="center">9,900</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-11</td>
-<td align="center">10,304</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-12</td>
-<td align="center">17,382</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-13</td>
-<td align="center">12,426</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-14</td>
-<td align="center">15,098</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-15</td>
-<td align="center">10,139</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-16</td>
-<td align="center">15,084</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-17</td>
-<td align="center">13,452</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-18</td>
-<td align="center">10,056</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-19</td>
-<td align="center">11,829</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-20</td>
-<td align="center">10,395</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-21</td>
-<td align="center">8,821</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-22</td>
-<td align="center">13,460</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-23</td>
-<td align="center">8,918</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-24</td>
-<td align="center">8,355</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-25</td>
-<td align="center">2,492</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-26</td>
-<td align="center">6,778</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-27</td>
-<td align="center">10,119</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-28</td>
-<td align="center">11,458</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-29</td>
-<td align="center">5,018</td>
-</tr>
-<tr class="even">
-<td align="center">2012-10-30</td>
-<td align="center">9,819</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-10-31</td>
-<td align="center">15,414</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-01</td>
-<td align="center">0</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-02</td>
-<td align="center">10,600</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-03</td>
-<td align="center">10,571</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-04</td>
-<td align="center">0</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-05</td>
-<td align="center">10,439</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-06</td>
-<td align="center">8,334</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-07</td>
-<td align="center">12,883</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-08</td>
-<td align="center">3,219</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-09</td>
-<td align="center">0</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-10</td>
-<td align="center">0</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-11</td>
-<td align="center">12,608</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-12</td>
-<td align="center">10,765</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-13</td>
-<td align="center">7,336</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-14</td>
-<td align="center">0</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-15</td>
-<td align="center">41</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-16</td>
-<td align="center">5,441</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-17</td>
-<td align="center">14,339</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-18</td>
-<td align="center">15,110</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-19</td>
-<td align="center">8,841</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-20</td>
-<td align="center">4,472</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-21</td>
-<td align="center">12,787</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-22</td>
-<td align="center">20,427</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-23</td>
-<td align="center">21,194</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-24</td>
-<td align="center">14,478</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-25</td>
-<td align="center">11,834</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-26</td>
-<td align="center">11,162</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-27</td>
-<td align="center">13,646</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-28</td>
-<td align="center">10,183</td>
-</tr>
-<tr class="even">
-<td align="center">2012-11-29</td>
-<td align="center">7,047</td>
-</tr>
-<tr class="odd">
-<td align="center">2012-11-30</td>
-<td align="center">0</td>
-</tr>
-</tbody>
-</table>
+<p>| date | TotalSteps | |:———-:|:————:| | 2012-10-01 | 0 | | 2012-10-02 | 126 | | 2012-10-03 | 11,352 | | 2012-10-04 | 12,116 | | 2012-10-05 | 13,294 | | 2012-10-06 | 15,420 | | 2012-10-07 | 11,015 | | 2012-10-08 | 0 | | 2012-10-09 | 12,811 | | 2012-10-10 | 9,900 | | 2012-10-11 | 10,304 | | 2012-10-12 | 17,382 | | 2012-10-13 | 12,426 | | 2012-10-14 | 15,098 | | 2012-10-15 | 10,139 | | 2012-10-16 | 15,084 | | 2012-10-17 | 13,452 | | 2012-10-18 | 10,056 | | 2012-10-19 | 11,829 | | 2012-10-20 | 10,395 | | 2012-10-21 | 8,821 | | 2012-10-22 | 13,460 | | 2012-10-23 | 8,918 | | 2012-10-24 | 8,355 | | 2012-10-25 | 2,492 | | 2012-10-26 | 6,778 | | 2012-10-27 | 10,119 | | 2012-10-28 | 11,458 | | 2012-10-29 | 5,018 | | 2012-10-30 | 9,819 | | 2012-10-31 | 15,414 | | 2012-11-01 | 0 | | 2012-11-02 | 10,600 | | 2012-11-03 | 10,571 | | 2012-11-04 | 0 | | 2012-11-05 | 10,439 | | 2012-11-06 | 8,334 | | 2012-11-07 | 12,883 | | 2012-11-08 | 3,219 | | 2012-11-09 | 0 | | 2012-11-10 | 0 | | 2012-11-11 | 12,608 | | 2012-11-12 | 10,765 | | 2012-11-13 | 7,336 | | 2012-11-14 | 0 | | 2012-11-15 | 41 | | 2012-11-16 | 5,441 | | 2012-11-17 | 14,339 | | 2012-11-18 | 15,110 | | 2012-11-19 | 8,841 | | 2012-11-20 | 4,472 | | 2012-11-21 | 12,787 | | 2012-11-22 | 20,427 | | 2012-11-23 | 21,194 | | 2012-11-24 | 14,478 | | 2012-11-25 | 11,834 | | 2012-11-26 | 11,162 | | 2012-11-27 | 13,646 | | 2012-11-28 | 10,183 | | 2012-11-29 | 7,047 | | 2012-11-30 | 0 |</p>
+<p><br><br></p>
 <p>Now let us create a histogram for the total steps each day.</p>
 <pre class="r"><code>library(ggplot2)
 ggplot(sm,aes(x=TotalSteps)) + geom_histogram(col=&quot;black&quot;,fill=&quot;firebrick&quot;,binwidth=2000) + labs(x=&quot;Total Steps&quot;, y = &quot;Frequency&quot;)</code></pre>
@@ -347,24 +92,7 @@ ggplot(sm,aes(x=TotalSteps)) + geom_histogram(col=&quot;black&quot;,fill=&quot;f
                    Median=median(sm$TotalSteps,na.rm=T)
                    )
        )</code></pre>
-<table>
-<colgroup>
-<col width="9%"></col>
-<col width="11%"></col>
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">Mean</th>
-<th align="center">Median</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">9354</td>
-<td align="center">10395</td>
-</tr>
-</tbody>
-</table>
+<p>| Mean | Median | |:——:|:——–:| | 9354 | 10395 |</p>
 <p><br><br></p>
 </div>
 <div id="what-is-the-average-daily-activity-pattern" class="section level2">
@@ -411,10 +139,6 @@ pander(data.frame( Mean=mean(smimputed$TotalSteps,na.rm=T),
                    )
        )</code></pre>
 <table>
-<colgroup>
-<col width="9%"></col>
-<col width="11%"></col>
-</colgroup>
 <thead>
 <tr class="header">
 <th align="center">Mean</th>
@@ -433,24 +157,7 @@ pander(data.frame( Mean=mean(sm$TotalSteps,na.rm=T),
                    Median=median(sm$TotalSteps,na.rm=T)
                    )
        )</code></pre>
-<table>
-<colgroup>
-<col width="9%"></col>
-<col width="11%"></col>
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">Mean</th>
-<th align="center">Median</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">9354</td>
-<td align="center">10395</td>
-</tr>
-</tbody>
-</table>
+<p>| Mean | Median | |:——:|:——–:| | 9354 | 10395 |</p>
 <p>The two estimates are different. The mean and median of the daily imputed data is more than the corresponding parameter of the original daily data. This is likely due to the method of removing NAs, where we used the mean interval values to replace NAs, and are now computing the daywise means.<br />The mean and median of the newly imputed data is same somehow.</p>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">

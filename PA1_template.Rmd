@@ -22,10 +22,14 @@ To find the total steps per day, let us use the library dplyr to group the data 
 library(dplyr)  # to manipulate data frames
 library(pander) # nice printing in markdown
 library(knitr)  # for markdown
+panderOptions('table.style', 'rmarkdown') # so that the md file looks okay.
 # group the data by date,  then compute the total steps for each date.
 sm <- group_by(df,date) %>% summarise(TotalSteps = sum(steps,na.rm=TRUE))
 pander(as.data.frame(sm),big.mark=",") # print out the total steps.
 ```
+   
+<br><br>    
+  
 
 Now let us create a histogram for the total steps each day.  
 ```{r}
